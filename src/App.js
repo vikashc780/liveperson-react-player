@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import VoiceBasePlayer from "@voicebase/react-player";
 
-function App() {
+import VoiceBasePlayerJSON from "./assets/RE3ea081b73c7c8361248add4cb8f490f7.json";
+
+export default function App() {
+  const config = {
+    mediaUrl: "/RE3ea081b73c7c8361248add4cb8f490f7.ogg",
+    analyticsUrl: VoiceBasePlayerJSON,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <VoiceBasePlayer
+      mediaUrl={config.mediaUrl}
+      analytics={config.analyticsUrl}
+      analyticsFormat="ANALYTICS_SCHEMA_VERSION_V3"
+    />
   );
 }
-
-export default App;
